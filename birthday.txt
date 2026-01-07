@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ffafbd, #ffc3a0, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b9d, #ff8e53);
+            padding: 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .heart-icon {
+            color: #ff4d8d;
+            animation: heartbeat 1.5s infinite;
+            margin: 0 10px;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .section {
+            padding: 40px;
+            display: none;
+        }
+
+        .active-section {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Countdown Section */
+        .countdown-container {
+            text-align: center;
+        }
+
+        .countdown-title {
+            font-size: 2rem;
+            color: #ff6b9d;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            border-radius: 15px;
+            padding: 20px 15px;
+            min-width: 120px;
+            box-shadow: 0 8px 15px rgba(255, 107, 157, 0.2);
+        }
+
+        .countdown-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-label {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .birthday-date {
+            font-size: 1.8rem;
+            color: #ff6b9d;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .cartoon-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .cartoon {
+            width: 200px;
+            height: 200px;
+            background: url('https://cdn.jsdelivr.net/gh/hjnilsson/country-flags@master/svg/us.svg') no-repeat center;
+            background-size: contain;
+            position: relative;
+        }
+
+        /* Celebration Section */
+        .celebration-container {
+            text-align: center;
+        }
+
+        .celebration-title {
+            font-size: 3rem;
+            color: #ff6b9d;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #ff6b9d;
+            border-radius: 50%;
+            animation: confettiFall 5s linear infinite;
+        }
+
+        .confetti:nth-child(2n) {
+            background-color: #ff8e53;
+        }
+
+        .confetti:nth-child(3n) {
+            background-color: #a1c4fd;
+        }
+
+        .confetti:nth-child(4n) {
+            background-color: #c2e9fb;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .cake-container {
+            margin: 30px auto;
+            width: 250px;
+            height: 200px;
+            position: relative;
+        }
+
+        .cake {
+            width: 200px;
+            height: 80px;
+            background: #ffafbd;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cake-top {
+            width: 220px;
+            height: 40px;
+            background: #ffc3a0;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .candle {
+            width: 10px;
+            height: 40px;
+            background: #ff6b9d;
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .flame {
+            width: 20px;
+            height: 30px;
+            background: #ff8e53;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            bottom: 160px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); }
+            100% { transform: translateX(-50%) scale(1.1); }
+        }
+
+        /* Wishes Section */
+        .wishes-container {
+            text-align: center;
+        }
+
+        .wishes-title {
+            font-size: 3rem;
+            color: #ff6b9d;
+            margin-bottom: 30px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .wishes-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #555;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .message-box {
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 15px rgba(161, 196, 253, 0.3);
+        }
+
+        .gift-icon {
+            font-size: 4rem;
+            color: #ff6b9d;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #ff6b9d;
+            margin-top: 30px;
+        }
+
+        .progress-container {
+            margin-top: 40px;
+            width: 100%;
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ffafbd, #ffc3a0);
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 90px;
+                padding: 15px 10px;
+            }
+            
+            .countdown-value {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>For My Beautiful Love <i class="fas fa-heart heart-icon"></i></h1>
+            <p>A special countdown to the most wonderful day of the year</p>
+        </div>
+        
+        <!-- Countdown Section -->
+        <div id="countdown-section" class="section active-section">
+            <div class="countdown-container">
+                <h2 class="countdown-title">Countdown to Her Birthday!</h2>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+                <div class="birthday-date">10th March - The Day My World Became Brighter</div>
+                <div class="cartoon-container">
+                    <div class="cartoon">
+                        <i class="fas fa-birthday-cake" style="font-size: 8rem; color: #ff6b9d;"></i>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="countdown-progress"></div>
+                </div>
+                <p style="margin-top: 20px; color: #666;">The countdown will automatically transition to a celebration when her birthday arrives!</p>
+            </div>
+        </div>
+        
+        <!-- Celebration Section -->
+        <div id="celebration-section" class="section">
+            <div class="celebration-container">
+                <h2 class="celebration-title">It's Her Birthday! <i class="fas fa-heart heart-icon"></i></h2>
+                <div class="cake-container">
+                    <div class="cake"></div>
+                    <div class="cake-top"></div>
+                    <div class="candle"></div>
+                    <div class="flame"></div>
+                </div>
+                <div class="message-box">
+                    <p style="font-size: 1.5rem; color: #ff6b9d; margin-bottom: 15px;">?? The day is finally here! ??</p>
+                    <p style="font-size: 1.2rem;">The countdown is over and now it's time to celebrate the most amazing person in my life!</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="celebration-progress"></div>
+                </div>
+                <p style="margin-top: 20px; color: #666; font-style: italic;">Celebration in progress... Get ready for birthday wishes!</p>
+            </div>
+        </div>
+        
+        <!-- Wishes Section -->
+        <div id="wishes-section" class="section">
+            <div class="wishes-container">
+                <h2 class="wishes-title">Happy Birthday My Love! <i class="fas fa-heart heart-icon"></i></h2>
+                <div class="gift-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <div class="message-box">
+                    <div class="wishes-text">
+                        <p>My dearest love,</p>
+                        <p>On this special day, I want you to know how incredibly grateful I am to have you in my life. Your smile lights up my world, your laughter is my favorite melody, and your love is the greatest gift I've ever received.</p>
+                        <p>You are not just a year older today, but a year more amazing, more beautiful, and more wonderful. May this birthday bring you all the happiness you deserve and may all your dreams come true.</p>
+                        <p>Thank you for being you, for loving me, and for making every day brighter just by being in it. I cherish every moment with you and look forward to celebrating many more birthdays together.</p>
+                        <p>With all my love, now and forever.</p>
+                    </div>
+                </div>
+                <div class="signature">Yours always and forever</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="wishes-progress"></div>
+                </div>
+                <p style="margin-top: 20px; color: #666;">This page is a small token of my infinite love for you.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with <i class="fas fa-heart" style="color: #ff6b9d;"></i> for the most special person | This page will remember your progress</p>
+        </div>
+    </div>
+
+    <script>
+        // Set the birthday date (March 10th of the current or next year)
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        let birthday = new Date(currentYear, 2, 10); // March is month 2 (0-indexed)
+        
+        // If birthday has already passed this year, set to next year
+        if (now > birthday) {
+            birthday.setFullYear(currentYear + 1);
+        }
+        
+        // Elements
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+        const countdownProgress = document.getElementById('countdown-progress');
+        
+        const countdownSection = document.getElementById('countdown-section');
+        const celebrationSection = document.getElementById('celebration-section');
+        const wishesSection = document.getElementById('wishes-section');
+        const celebrationProgress = document.getElementById('celebration-progress');
+        const wishesProgress = document.getElementById('wishes-progress');
+        
+        // Create confetti for celebration
+        function createConfetti() {
+            const celebrationContainer = document.querySelector('.celebration-container');
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.width = Math.random() * 15 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                document.body.appendChild(confetti);
+            }
+        }
+        
+        // Update countdown
+        function updateCountdown() {
+            const now = new Date();
+            const timeDifference = birthday - now;
+            
+            // If birthday has arrived
+            if (timeDifference <= 0) {
+                // Show celebration section
+                countdownSection.classList.remove('active-section');
+                celebrationSection.classList.add('active-section');
+                createConfetti();
+                
+                // After 5 seconds, show wishes section
+                setTimeout(() => {
+                    celebrationSection.classList.remove('active-section');
+                    wishesSection.classList.add('active-section');
+                    
+                    // Animate progress bars
+                    animateProgress(celebrationProgress, 100, 3000);
+                    setTimeout(() => {
+                        animateProgress(wishesProgress, 100, 4000);
+                    }, 1000);
+                }, 5000);
+                
+                // Animate celebration progress bar
+                animateProgress(celebrationProgress, 100, 5000);
+                return;
+            }
+            
+            // Calculate time units
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            
+            // Update display
+            daysElement.textContent = days.toString().padStart(2, '0');
+            hoursElement.textContent = hours.toString().padStart(2, '0');
+            minutesElement.textContent = minutes.toString().padStart(2, '0');
+            secondsElement.textContent = seconds.toString().padStart(2, '0');
+            
+            // Calculate progress (days until birthday from 365 days)
+            const totalDaysInYear = 365;
+            const daysUntilBirthday = Math.floor((birthday - new Date(currentYear, 0, 1)) / (1000 * 60 * 60 * 24));
+            const progressPercentage = ((totalDaysInYear - daysUntilBirthday) / totalDaysInYear) * 100;
+            countdownProgress.style.width = progressPercentage + '%';
+            
+            // Update every second
+            setTimeout(updateCountdown, 1000);
+        }
+        
+        // Animate progress bar
+        function animateProgress(progressBar, targetPercent, duration) {
+            let startPercent = 0;
+            const increment = targetPercent / (duration / 10);
+            
+            const timer = setInterval(() => {
+                startPercent += increment;
+                progressBar.style.width = Math.min(startPercent, targetPercent) + '%';
+                
+                if (startPercent >= targetPercent) {
+                    clearInterval(timer);
+                }
+            }, 10);
+        }
+        
+        // Check for saved state (if user has already seen celebration or wishes)
+        function checkSavedState() {
+            const savedState = localStorage.getItem('birthdayPageState');
+            const now = new Date();
+            
+            // If birthday has passed and user has already seen wishes
+            if (savedState === 'wishes' && now > birthday) {
+                countdownSection.classList.remove('active-section');
+                celebrationSection.classList.remove('active-section');
+                wishesSection.classList.add('active-section');
+                createConfetti();
+                celebrationProgress.style.width = '100%';
+                wishesProgress.style.width = '100%';
+                return true;
+            }
+            
+            // If birthday has passed and user has seen celebration but not wishes
+            if (savedState === 'celebration' && now > birthday) {
+                countdownSection.classList.remove('active-section');
+                celebrationSection.classList.add('active-section');
+                wishesSection.classList.remove('active-section');
+                createConfetti();
+                celebrationProgress.style.width = '100%';
+                
+                // After 3 seconds, show wishes
+                setTimeout(() => {
+                    celebrationSection.classList.remove('active-section');
+                    wishesSection.classList.add('active-section');
+                    animateProgress(wishesProgress, 100, 4000);
+                    localStorage.setItem('birthdayPageState', 'wishes');
+                }, 3000);
+                return true;
+            }
+            
+            // If birthday is today and countdown is over
+            if (now > birthday) {
+                localStorage.setItem('birthdayPageState', 'celebration');
+                return false;
+            }
+            
+            return false;
+        }
+        
+        // Initialize
+        if (!checkSavedState()) {
+            updateCountdown();
+        }
+        
+        // Save state when user sees wishes
+        wishesSection.addEventListener('animationend', () => {
+            localStorage.setItem('birthdayPageState', 'wishes');
+        });
+    </script>
+</body>
+</html>
